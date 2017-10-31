@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- Incluir acá el resto de configuración de directivas para visualizar documento HTML -->
 		<title>Goku VS Vegeta</title>
 		<link href="https://fonts.googleapis.com/css?family=Anton|Germania+One" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<style type="text/css">
+			/* ------------------------------------ */
 			/* Reglas CSS base */
+			/* ------------------------------------ */
 			body{
 				background-color: #2b332f;
-			}
-			header,footer {
+			}			
+			header{
 				background: #ececec;
 				display: block;
 				width: 100%;
-				height: 100px;
-				/*border:1px solid purple;*/
-			}
-			footer {
-				position: fixed;
-    			bottom: 0px;				
+				height: 70px;
 			}
 			header h1 {
-				font-size: 24px;
-			}
-			footer h2 {
-				font-size: 16px;
+				font-size: 26px;
+				position: absolute;
+				width: 96%;
+				display: inline-block;
+				line-height: 33px;
 			}
 			header h1, footer h2 {
 				color: rgba(1,1,1,0.75);
@@ -33,24 +32,26 @@
 				text-align: center;
 			}
 			.contenedor{
-				/*margin: 0 auto;
-				width: 660px;*/
 				border-radius: 6px;
 				position: relative;
-				top: 2em;
+				top: 0.55em;
 				margin: 0 auto;
-				width: 660px;
+				width: 740px;
 				display: block;
 				overflow: hidden;
+				padding: 0 5em;
 				height: 500px;
-				border: 2px dotted rgb(62, 74, 71);			
+				border: 4px dotted rgb(62, 74, 71);				
 			}		
 			.inicial{
 				display: inline-block;
 			}
 			.storyboard{
 				display: inline-block;
-				width: 660px;
+				width: 86%;
+				left: 50%;
+				position: relative;
+				transform: translateX(-50%);				
 			}
 			.storyboard.hide{
 				display: none;
@@ -72,6 +73,55 @@
 			img{
 				width: 330px;
 			}
+			footer{
+				display: block;
+				width: 100%;
+				height: 150px;
+				position: fixed;
+				bottom: 0px;
+				background: #bfbfbf;				
+			}
+			footer h2 {
+				font-size: 14px;
+			}
+			footer:nth-child(2) {
+				text-align: center;
+			}
+			footer table {
+				margin: 0.5em auto 0;
+	    		width: 60%;
+			}
+			footer th{
+				font-size: 1rem;
+				color: rgb(32, 44, 62);
+				padding: margin;
+				font-weight: normal!important;
+				margin: 0;			
+			}
+			footer td:nth-child(1) h2{
+				text-align: left;
+				padding-left: 1em;
+			}
+			footer td:nth-child(2) h2{
+				text-align: center;
+				margin: 0;
+			}
+			footer div{/* [PENDIENTE] */}
+			footer div .autor{
+				background: #c2c7cb;
+				color: rgba(1,1,1,0.75);
+				border-radius: 5px;
+				display: inline-block;
+				padding: 0.25em 1em;				
+			}
+			footer div .medio{
+				display: inline-block;
+				padding: 0.4em 1em;
+				background: #1971c9;
+				border-radius: 5px;
+				color: white;
+				width: 50%;
+			}			
 			/* Refactorizaciones justo acá abajo */
 
 			/* hasta acá */
@@ -81,9 +131,7 @@
 	<!-- MAQUETADO -->
 	<body>
 		<!-- add header básico -->
-		<header>
-			<h1>Panel de Batalla</h1>
-		</header>
+		<header><h1>Panel de Batalla</h1></header>
 		<div class="contenedor">			
 			<table class="inicial">
 				<tr>
@@ -103,23 +151,18 @@
 				let round =0;
 				let imgGoku=1;
 				let imgVegeta=1;
-
+				const altoLienzoActual = 500;
 				// Imagenes:
 				let arrImages = {
 					'goku_injured': 'images/goku_injured.jpg',
 					'vegeta_injured': 'images/vegeta_injured.png'
-				}
+				}				
 
-				const altoLienzoActual = 500;
-				
-				// Arrow function
+				// Arrow functions
 				const ambosSiguenVivos = () => vidaGoku > 0 && vidaVegeta > 0;
 				const calcularGolpe = () => Math.round(Math.random() * (maxPower - minPower)) + minPower;
 				const sigueVivoGoku =() => vidaGoku > 0;
 				let contadorPelea = 0
-
-				// clear HTML
-				document.write('')
 
 				// comenzar batalla
 				comenzarBatalla()
@@ -178,6 +221,8 @@
 				}
 
 				function renderEscena(round, nombreGanador, golpeGanador, imgGanador, vidaActualOponente){
+					// clear HTML
+					document.write('')					
 					// definiciones
 					let golpeGoku=false
 					let golpeVegeta=false
@@ -198,7 +243,6 @@
 						document.write(`<td><img src='images/vegeta_injured.png'></td>`)	
 						document.write('</tr>')					
 					}else{
-						// caso contrario en el while
 						// estado atacante
 						document.write('<tr>')
 						document.write(`<td>Vegeta ataca con un golpe de ${golpeGanador}</td>`)
@@ -230,13 +274,28 @@
 				}
 				// final SCOPE <<<<<
 			</script>
-		<!-- FINAL SCRIPT -->			
 		</div>
 		<!-- add Footer -->
 		<footer>
 			<div>
-                <h2>Adaptación del ejercicio propuesto por el compañero Iván Darío, <span class="medio">Twitter: @cosmosoftroot</span> </h2>
-                <h2>Refactor realizado por:   Jaime Diaz.  <span class="medio">Twitter: @jdiaz0017</span></h2>
+				<table>
+					<thead>
+						<tr>
+							<th width="60%">Autores</th>
+							<th width="40%">Contacto</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><h2>Ejercicio propuesto por elalumno: <span class="autor">Iván Darío</span></h2></td>
+							<td><h2><span class="medio">Twitter: @cosmosoftroot</span></h2></td>
+						</tr>
+						<tr>
+							<td><h2>Refactor realizado por el alumno: <span class="autor">Jaime Diaz.</span></h2></td>
+							<td><h2><span class="medio">Twitter: @jdiaz0017</span></h2></td>
+						</tr>
+					</tbody>					
+				</table>
 			</div>
 		</footer>		
 	</body>

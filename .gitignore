@@ -1,2 +1,7 @@
+#---------------------------------------------------------
+# ignorando carpetas IDE
+.vscode
+# Ficheros locales
 BACKUP_BORRADOR.html
 BACKUP_MEJORAS.html
+base-index.html

@@ -19,14 +19,19 @@ Es un juego realizado en JS utilizando de momento un único fichero HTML donde s
 ```
 ## Requerimientos INICIALES (CSS, HTML, JS):
 ```
-  A continuación está la propuesta de requerimientos BASE, la idea es que quien postule a este proyecto escoja un requerimiento para trabajar en su entorno local mientras realiza todo el procedimiento explicado en el curso profesional de GITHUB para interactuar con repositorios y proponer una mejora o aporte al proyecto:
+  A continuación está la propuesta de requerimientos BASE, la idea es que quien postule a este proyecto escoja un requerimiento para trabajar en su entorno local mientras realiza todo el procedimiento explicado en el curso profesional de GITHUB para interactuar con repositorios y proponer una mejora o aporte al proyecto.
 ```
 ```
+- Listado de requerimientos propuestos:
 - [REQ-01]: Separar del HTML actúal "index.html" en un fichero aparte todo el código CSS.
-- [REQ-02]: Una vez separados los ficheros, se requiere que el todo CSS sea adaptativo y RESPONSIVE, es decir, desplegar el Juego en todas las resoluciones de pantalla, incluyendo Tablets, iPad (PRO y NORMAL), Tablets pequeñas, iPhone 5 y 6.
+- [REQ-02]: Una vez separados los ficheros, se requiere que el todo CSS sea adaptativo y RESPONSIVE, es decir, desplegar el Juego en todas las resoluciones de pantalla, 
+incluyendo Tablets, iPad (PRO y NORMAL), Tablets pequeñas, iPhone 5 y 6.  Conforme se detalle la visualización de los elementos en la pantalla.
+- [REQ-02-01]: Agregar una tipografía estable y equilibrada para la buena lectura.
 - [REQ-03]: Separar del HTML actúal "index.html" en un fichero aparte con todo el códifo JAVASCRIPT.
 - [REQ-04]: Agregar audio mientras se están desplegando las imagenes que son la secuencia de la batalla.
 - [REQ-05]:Agregar a nivel de maquetación, un panel en la izquierda que representa más detalles sobre la BATALLA.
+- [REQ-06-SR]: Implementar Servicios y Frontend para  consumir desde un cliente la Batalla (ANDROID, IOS)
+- [REQ-07-JR]: Configurar etiquetas/directivas en el <head> del documento.
 ```
 
 ```
