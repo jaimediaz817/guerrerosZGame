@@ -3,7 +3,9 @@
 - readme.MD:
 # guerrerosZ
 ```
-Es un juego realizado en JS utilizando de momento un único fichero HTML donde se incluyen los estilos, la semántica HTML y el script JS dentro del tag, todo dentro del fichero HTML.
+Es un juego realizado en JS utilizando de momento un único fichero HTML 
+donde se incluyen los estilos, la semántica HTML y el script JS dentro 
+del tag, todo dentro del fichero HTML.
 ```
 ## Descripción del Refactor realizado
 -	Librerías y cargues CDN: se carga de momento JQuery en la cabecera del HTML (CDN) para recorrer la lista de tablas generadas en el JS.
