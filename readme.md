@@ -41,7 +41,6 @@ incluyendo Tablets, iPad (PRO y NORMAL), Tablets pequeñas, iPhone 5 y 6.  Confo
 ```
 
 ## Créditos
-```
+
 - [Twitter Iván Darío](https://twitter.com/cosmosoftroot)
 - [Twitter Jaime Iván Diaz](https://twitter.com/jdiaz0017)
-```
