@@ -6,8 +6,14 @@ Es un juego realizado en JS utilizando de momento un único fichero HTML donde s
 ```
 ## Descripción del Refactor realizado
 ```
--	Librerías y cargues CDN: se carga de momento JQuery en la cabecera del HTML (CDN) para recorrer la lista de tablas generadas en el JS.
--	JS: se agrega cierta funcionalidad para dejar la lógica lo más modular posible. Esto con el objetivo de implementar el patrón de diseño REVELADOR, que no es más que envolver todo el flujo principal de ejecución del programa (BATALLA) en una única función para tener control (Acceso) a sus miembros. Esto representa un SCOPE, y es parte del principio del desarrollo en Angular JS (Más información, consultarme.)
+-	Librerías y cargues CDN: se carga de momento JQuery en la cabecera del HTML
+(CDN) para recorrer la lista de tablas generadas en el JS.
+-	JS: se agrega cierta funcionalidad para dejar la lógica lo más modular 
+posible. Esto con el objetivo de implementar el patrón de diseño REVELADOR, 
+que no es más que envolver todo el flujo principal de ejecución del programa 
+(BATALLA) en una única función para tener control (Acceso) a sus miembros. 
+Esto representa un SCOPE, y es parte del principio del desarrollo en 
+Angular JS.
 ```
 
 ## Propuesta a los compañeros del curso de fundamentos:
