@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Goku VS Vegeta</title>
+		<link href="https://fonts.googleapis.com/css?family=Anton|Germania+One" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<style type="text/css">
+			body{
+				background-color: #2b332f;
+			}
+			header,footer {
+				background: #ececec;
+				display: block;
+				width: 100%;
+				height: 100px;
+				border:1px solid purple;
+			}
+			footer {
+				position: fixed;
+    			bottom: 0px;				
+			}
+			header h1 {
+				font-size: 24px;
+			}
+			footer h2 {
+				font-size: 16px;
+			}
+			header h1, footer h2 {
+				color: rgba(1,1,1,0.75);
+				font-family: sans-serif;			
+				letter-spacing: 0.5px;
+				text-align: center;
+			}
+			.contenedor{
+				/*margin: 0 auto;
+				width: 660px;*/
+				border-radius: 6px;
+				position: relative;
+				top: 2em;
+				margin: 0 auto;
+				width: 660px;
+				display: block;
+				overflow: hidden;
+				height: 500px;
+				border: 1px dotted rgb(62, 74, 71);			
+			}		
+			.inicial{
+				display: inline-block;
+			}
+			.storyboard{
+				display: inline-block;
+				width: 660px;
+			}
+			.storyboard.hide{
+				display: none;
+				transform: all 0.5s;
+			}
+			th{
+				color:white;
+				text-align: center;
+				font-size: 2rem;
+				font-family: 'Anton', sans-serif;
+			}
+			td{
+				background-color: white;
+				text-align: center;
+				font-size: 1.5rem;
+				font-weight: bold;
+				font-family: 'Germania One', cursive;
+			}
+			img{
+				width: 330px;
+			}
+		</style>
+	</head>
+
+	<!-- MAQUETADO -->
+	<body>
+		<header>
+			<h1>Panel de Batalla</h1>
+		</header>
+		<div class="contenedor">			
+			<table class="inicial">
+				<tr>
+					<td><img src="images/start.jpg" style=" width:660px;"></td>
+				</tr>
+			</table>
+
+			<!-- SCRIPT  -->		
+			<script type="text/javascript">
+				// SCOPE  >>>>>
+				let vidaGoku=100;
+				let vidaVegeta=100;
+
+				const minPower=5;
+				const maxPower=12;
+
+				let round =0;
+				let imgGoku=1;
+				let imgVegeta=1;
+
+				// Imagenes:
+				let arrImages = {
+					'goku_injured': 'images/goku_injured.jpg',
+					'vegeta_injured': 'images/vegeta_injured.png'
+				}
+
+				const altoLienzoActual = 500;
+				
+				// Arrow function
+				const ambosSiguenVivos = () => vidaGoku > 0 && vidaVegeta > 0;
+				const calcularGolpe = () => Math.round(Math.random() * (maxPower - minPower)) + minPower;
+				const sigueVivoGoku =() => vidaGoku > 0;
+				let contadorPelea = 0
+
+				// clear HTML
+				document.write('')
+
+				// comenzar batalla
+				comenzarBatalla()
+
+				function test1(vidaG, vidaV, estados){
+					console.log(`test: ${vidaG}, vida vegeta: ${vidaV} , estados: ${estados}`)
+				}
+
+				//
+				function comenzarBatalla(){
+					// estado golpes
+					let estados=null
+
+					// inicio de la pelea				
+					while(ambosSiguenVivos()){
+
+						console.log("cuerpo INICIO");				
+						contadorPelea++
+						round++;						
+						// constantes
+						const  golpeGoku = calcularGolpe();
+						const  golpeVegeta = calcularGolpe();
+						// golpes (evaluacion)
+						if (golpeGoku > golpeVegeta){
+							if(imgGoku>3)
+								imgGoku=1;
+							vidaVegeta-=golpeGoku;
+							// render
+							estados = renderEscena(round, "goku", golpeGoku, imgGoku, vidaVegeta)
+							imgGoku++;
+						}else{
+							if(imgVegeta>3)
+								imgVegeta=1;
+							vidaGoku-=golpeVegeta;
+							// render
+							estados = renderEscena(round, "vegeta", golpeVegeta, imgVegeta, vidaGoku)
+							imgVegeta++;
+						}
+						console.log("cuerpo FINAL, imagenes de test: "+arrImages.goku_injured);
+					}
+					// definiciones
+					let arrTables = $(".contenedor table")
+					let cont =0;
+					// start animación
+					setTimeout(function() {
+						console.log("INICIAL")
+						$(arrTables[0]).fadeOut("slow")//.css({"display":"none"})
+
+						// recorrer los elementos diferentes del primero
+						arrTables.each(function(i,j){
+							cont++
+							//console.log("recorrido "+$(this).attr('class')+ "  , "+arrTables[0])
+							setTimeout(function () {
+								console.log("iteracion "+ $(j).attr("class"))
+								$(j).fadeOut("slow")
+							}, 3000 * cont)
+						})
+
+					}, 2000);
+
+				}
+
+				function renderEscena(round, nombreGanador, golpeGanador, imgGanador, vidaActualOponente){
+					// definiciones
+					let golpeGoku=false
+					let golpeVegeta=false
+
+					document.write('<table class="storyboard">');
+					document.write(`<tr><th colspan='2'>Round ${round}</th></tr>`)
+
+					// Validación
+					if (nombreGanador=="goku"){
+						// estado atacante
+						document.write('<tr>')
+						document.write(`<td>Goku ataca con un golpe de ${golpeGanador}</td>`)
+						document.write(`<td><img src='images/goku_${imgGanador}.jpg'></td>`)
+						document.write('</tr>')
+						// estado oponente
+						document.write('<tr>')
+						document.write(`<td>Vegeta queda con ${vidaActualOponente} de vida</td>`)
+						document.write(`<td><img src='images/vegeta_injured.png'></td>`)	
+						document.write('</tr>')					
+					}else{
+						// caso contrario en el while
+						// estado atacante
+						document.write('<tr>')
+						document.write(`<td>Vegeta ataca con un golpe de ${golpeGanador}</td>`)
+						document.write(`<td><img src='images/vegeta_${imgGanador}.jpg'></td>`)
+						document.write('</tr>')
+						vidaGoku-=golpeVegeta;
+						// estado oponente
+						document.write('<tr>')
+						document.write(`<td>Goku queda con ${vidaActualOponente} de vida</td>`)
+						document.write(`<td><img src='images/goku_injured.jpg'></td>`)
+						document.write('</tr>')					
+					}
+					document.write(`</table>`)
+					return golpeGanador
+				}
+
+				function calcularTotalSecuencia(total){
+					return (altoLienzoActual*total)
+				}
+
+				//  salidas
+				console.log("alto lienzo "+altoLienzoActual)
+				if(sigueVivoGoku()){
+					document.write('<table class="storyboard">')
+					document.write(`<tr><th colspan='2'>Goku gana la pelea!!!</th></tr>`)
+					document.write(`<td><img src='images/goku_win.jpg'></td>`)
+					document.write(`</table>`)
+				}else{
+					document.write('<table class="storyboard">')
+					document.write(`<tr><th colspan='2'>Vegeta gana la pelea!!!</th></tr>`)
+					document.write(`<td><img src='images/vegeta_win.jpg'></td>`)
+					document.write(`</table>`)
+				}
+				// final SCOPE <<<<<
+			</script>
+		<!-- FINAL SCRIPT -->			
+		</div>
+		<footer>
+			<div>
+                <h2>Adaptación del ejercicio propuesto por el compañero Iván Darío,  Twitter: @cosmosoftroot </h2>
+                <h2>Refactor realizado por:   Jaime Diaz.  Twitter: @jdiaz0017</h2>
+			</div>
+		</footer>		
+	</body>
+</html>
