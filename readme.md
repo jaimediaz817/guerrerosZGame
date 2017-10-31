@@ -30,7 +30,8 @@ incluyendo Tablets, iPad (PRO y NORMAL), Tablets pequeñas, iPhone 5 y 6.  Confo
 - [REQ-03]: Separar del HTML actúal "index.html" en un fichero aparte con todo el códifo JAVASCRIPT.
 - [REQ-04]: Agregar audio mientras se están desplegando las imagenes que son la secuencia de la batalla.
 - [REQ-05]:Agregar a nivel de maquetación, un panel en la izquierda que representa más detalles sobre la BATALLA.
-- [REQ-06-SR]: Implementar Servicios y Frontend para  consumir desde un cliente la Batalla (ANDROID, IOS)
+- [REQ-06-SR]: Implementar Servicios y Frontend para  consumir desde un cliente la Batalla (ANDROID, IOS).
+- [REQ-05-01]: Modificar el mecanismo de escritura sobre el DOM, reemplazando el .write por .append( ... )
 - [REQ-07-JR]: Configurar etiquetas/directivas en el <head> del documento.
 ```
 
