@@ -16,6 +16,7 @@ Es un juego realizado en JS utilizando de momento un único fichero HTML donde s
 - La idea es simular un entorno real de desarrollo, donde cada aporte (Pull Request) será bienvenido y mejoraremos notablemente este juego hasta llegar a ser multiplataforma. Todo partiendo de la solución a los requerimientos iniciales planteados en la lista correspondiente.
 
 - Se intentará Llevar el historial de asignación de tareas actuales en el localStorage del servidor (Github pages) u otro medio propuesto por un estudiante.
+- Establecer/proponer un flujo de trabajo solido y fluido para realizar tareas de despliegue de manera sencilla, y cada integrante pueda aportar al proyecto base.
 ```
 ## Requerimientos INICIALES (CSS, HTML, JS):
 ```
