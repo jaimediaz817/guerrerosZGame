@@ -205,7 +205,7 @@
 					// definiciones
 					let arrTables = $(".contenedor table")
 					let cont =0;
-					// start animación
+					// animación
 					setTimeout(function() {
 						console.log("INICIAL")
 						$(arrTables[0]).fadeOut("slow")//.css({"display":"none"})
@@ -214,9 +214,9 @@
 						arrTables.each(function(i,j){
 							cont++
 							setTimeout(function () {
-								console.log("iteracion "+ $(j).attr("class"))
+								console.log("iteracion "+ $(j).attr("class")+ " contenido de i: "+i)
 								$(j).fadeOut("slow")
-							}, 3000 * cont)
+							}, 2500 * cont)
 						})
 
 					}, 2000);
@@ -261,7 +261,6 @@
 					document.write(`</table>`)
 					return golpeGanador
 				}
-
 				//  salidas
 				console.log("alto lienzo "+altoLienzoActual)
 				if(sigueVivoGoku()){
